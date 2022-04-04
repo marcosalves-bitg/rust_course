@@ -1,8 +1,14 @@
+use std::io;
+
 fn main() {
-    // If need to mutate a variable, use let mut instead of let
-    // let mut mars_weight = calculate_weight_on_mars(100.0);
-    // mars_weight = mars_weight * 1000.0;
-    let mars_weight = calculate_weight_on_mars(100.0);
+    println!("Please, enter your weight in KG:");
+    let mut input = String::new();
+
+    io::stdin().read_line(&mut input).unwrap();
+
+    let weight: f32 = input.trim().parse().unwrap();
+
+    let mars_weight = calculate_weight_on_mars(weight);
     println!("Weight on Mars: {} Kg", mars_weight);
 }
 
